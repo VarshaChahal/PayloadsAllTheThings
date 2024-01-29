@@ -325,7 +325,7 @@ Let's break down the payload:
 1. `<!ENTITY % file SYSTEM "file:///etc/passwd">`
   This line defines an external entity named file that references the content of the file /etc/passwd (a Unix-like system file containing user account details).
 2. `<!ENTITY % eval "<!ENTITY &#x25; error SYSTEM 'file:///nonexistent/%file;'>">`
-  This line defines an entity eval that holds another entity definition. This other entity (error) is meant to reference a nonexistent file and append the content of the file entity (the `/etc/passwd` content) to the end of the file path. The `&#x25;` is a URL-encoded '`%`' used to reference an entity inside an entity definition.
+  This line defines an entity eval that holds another entity definition. This other entity (error) is meant to reference a nonexistent file and append the content of the file entity (the `/etc/passwd` content) to the end of the file path. The `&#x25;` is an HTML-encoded '`%`' used to reference an entity inside an entity definition.
 3. `%eval;`
   This line uses the eval entity, which causes the entity error to be defined.
 4. `%error;`
